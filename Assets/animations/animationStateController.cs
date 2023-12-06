@@ -6,56 +6,43 @@ using UnityEngine;
 public class animationStateController : MonoBehaviour
 {
     Animator animator;
-    int isWalkingHash;
+    float velocity = 0.0f;
+    public float acceleration = 0.1f;
+    public float deceleration = 0.5f;
+    int VelocityHash;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+
+        VelocityHash = Animator.StringToHash("Velocity");
     }
 
     // Update is called once per frame
     void Update()
     {
-        bool isWalking = animator.GetBool("isWalking");
+
         bool forwardPressed = Input.GetKey("w");
-        bool isRunning = animator.GetBool("isRunning");
         bool runPressed = Input.GetKey("left shift");
-        bool jumpPressed = Input.GetKey("space");
-        bool isJumping = animator.GetBool("isJumping");
+    //    bool jumpPressed = Input.GetKey("space");
+    //    bool isJumping = animator.GetBool("isJumping");
 
-        //if player presses w key
-        if (!isWalking && forwardPressed)
+        if (forwardPressed && velocity< 1.0f)
         {
-            //then set isWalking boolean to be true
-            animator.SetBool("isWalking", true);
+            velocity += Time.deltaTime * acceleration;
         }
 
-        //if player is not pressing w key
-        if (isWalking && !forwardPressed)
+        if (!forwardPressed && velocity > 0.0f)
         {
-            //then set isWalking boolean to be false
-            animator.SetBool("isWalking", false);
+            velocity -= Time.deltaTime * deceleration;
         }
 
-        //if player is walking and presses left shift
-        if(!isRunning &&(forwardPressed && runPressed))
+        if (!forwardPressed && velocity < 0.0f)
         {
-            //then se the isRunning boolean to be true
-            animator.SetBool("isRunning", true);
+            velocity = 0.0f;
         }
 
-        //if player is running and stops running or stops walking
-        if (isRunning && (!forwardPressed || !runPressed))
-        {
-            //then  set the isRunning boolean to be false
-            animator.SetBool("isRunning", false);
-        }
+        animator.SetFloat(VelocityHash, velocity);
 
-        if (jumpPressed && isRunning)
-        {
-            animator.SetBool("isJumping", true);
-        }
-
-       // if(isJumping && !jumpPressed)
     }
 }
