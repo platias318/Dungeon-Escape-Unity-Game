@@ -31,6 +31,7 @@ public class twoDImensionsAnimation : MonoBehaviour
         {
             velocityZ += Time.deltaTime * acceleration;
         }
+
         //increase velocity in left direction
         if (leftPressed && velocityX > -currentMaxVelocity)
         {
@@ -41,11 +42,13 @@ public class twoDImensionsAnimation : MonoBehaviour
         {
             velocityX += Time.deltaTime * acceleration;
         }
+
         // decrease velocityZ
         if (!forwardPressed && velocityZ > 0.0f)
         {
             velocityZ -= Time.deltaTime * deceleration;
         }
+
         //increase velocityX if left is not pressed and velocityX < 0
         if (!leftPressed && velocityX < 0.0f)
         {
@@ -58,7 +61,7 @@ public class twoDImensionsAnimation : MonoBehaviour
         }
     }
     //handles reset and locking of velocity
-    void lockOrResetVelocity(bool forwardPressed, bool leftPressed, bool rightPressed, bool runPressed, float currentMaxVelocity)
+    void lockOrResetVelocity(bool forwardPressed,  bool leftPressed, bool rightPressed, bool runPressed, float currentMaxVelocity)
     {
         // reset velocityZ
         if (!forwardPressed && velocityZ < 0.0f)
@@ -149,6 +152,7 @@ public class twoDImensionsAnimation : MonoBehaviour
         bool leftPressed = Input.GetKey("a");
         bool rightPressed = Input.GetKey("d");
         bool runPressed = Input.GetKey("left shift");
+        bool backPressed = Input.GetKey("s");
 
         //set current maxVelocity
         float currentMaxVelocity = runPressed ? maximumRunVelocity : maximumWalkVelocity;
