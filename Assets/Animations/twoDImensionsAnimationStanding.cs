@@ -5,10 +5,10 @@ using UnityEngine;
 public class twoDImensionsAnimation : MonoBehaviour
 {
     Animator animator;
-    float velocityZ = 0.0f;
-    float velocityX = 0.0f;
-    public float acceleration = 2.0f;
-    public float deceleration = 2.0f;
+    float velocityZ = 0.0f; // Y axis in blent tree graph
+    float velocityX = 0.0f; // X axis in blent tree graph
+    public float acceleration = 2.0f; // when the player is pressing the key down
+    public float deceleration = 2.0f; //when the player is not pressing the key down
     public float maximumWalkVelocity = 0.5f;
     public float maximumRunVelocity = 2.0f;
 
@@ -24,12 +24,19 @@ public class twoDImensionsAnimation : MonoBehaviour
     }
 
     //handles acceleration and deceleration
-    void changeVelocity(bool forwardPressed, bool leftPressed, bool rightPressed, bool runPressed, float currentMaxVelocity)
+    void changeVelocity(bool forwardPressed, bool backPressed,  bool leftPressed, bool rightPressed, bool runPressed, float currentMaxVelocity)
     {
         // if player presses forward, increase velocity in z direction
-        if (forwardPressed && velocityX < currentMaxVelocity)
+        if (forwardPressed && velocityZ < currentMaxVelocity) //continue increasing the velocity as long as it doesnt reach the maximum
         {
             velocityZ += Time.deltaTime * acceleration;
+        }
+
+        //if player pressed back , decrease velocity in z direction
+        if (backPressed && velocityZ > -currentMaxVelocity) //continue decreasing the velocity as long as it doesnt reach the minimum
+        {
+            velocityZ -= Time.deltaTime * acceleration;
+
         }
 
         //increase velocity in left direction
@@ -43,10 +50,15 @@ public class twoDImensionsAnimation : MonoBehaviour
             velocityX += Time.deltaTime * acceleration;
         }
 
-        // decrease velocityZ
+        // decrease velocityZ if forward not pressed so it reaches the idle state at some point
         if (!forwardPressed && velocityZ > 0.0f)
         {
             velocityZ -= Time.deltaTime * deceleration;
+        }
+        //increase velocityZ if back is not pressed so it reaches the idle state at some point
+        if (!backPressed && velocityZ < 0.0f)
+        {
+            velocityZ += Time.deltaTime * deceleration;
         }
 
         //increase velocityX if left is not pressed and velocityX < 0
@@ -61,16 +73,16 @@ public class twoDImensionsAnimation : MonoBehaviour
         }
     }
     //handles reset and locking of velocity
-    void lockOrResetVelocity(bool forwardPressed,  bool leftPressed, bool rightPressed, bool runPressed, float currentMaxVelocity)
+    void lockOrResetVelocity(bool forwardPressed, bool backPressed, bool leftPressed, bool rightPressed, bool runPressed, float currentMaxVelocity)
     {
         // reset velocityZ
-        if (!forwardPressed && velocityZ < 0.0f)
+        if (!forwardPressed && !backPressed && velocityZ!=0 && (velocityZ > -0.05 && velocityZ < 0.05f)) //from [-0.05,0.05]
         {
             velocityZ = 0.0f;
         }
 
         // reset velocityX
-        if (!leftPressed && !rightPressed && velocityX != 0.0f && (velocityX > -0.05f && velocityX < 0.05f))
+        if (!leftPressed && !rightPressed && velocityX != 0.0f && (velocityX > -0.05f && velocityX < 0.05f)) //from [-0.05,0.05]
         {
             velocityX = 0.0f;
         }
@@ -81,7 +93,7 @@ public class twoDImensionsAnimation : MonoBehaviour
             velocityZ = currentMaxVelocity;
         }
         // decelerate to the maximum walk velocity
-        else if (forwardPressed && velocityZ > currentMaxVelocity)
+        else if (forwardPressed && velocityZ > currentMaxVelocity) // because we were running , so the currentMaxVelocity is set to 2 by the if statement
         {
             velocityZ -= Time.deltaTime * deceleration;
             // round to the currentMaxVelocity if within offset
@@ -90,11 +102,31 @@ public class twoDImensionsAnimation : MonoBehaviour
                 velocityZ = currentMaxVelocity;
             }
         }
-        // round to the currentMaxVelocity if within offset
+        // round to the currentMaxVelocity if within offset(if we are close enough to the current max velocity, the set it to the max)
         else if (forwardPressed && velocityZ < currentMaxVelocity && velocityZ > (currentMaxVelocity - 0.05f))
         {
             velocityZ = currentMaxVelocity;
         }
+        //lock backwards
+        if(backPressed && runPressed && velocityZ < -currentMaxVelocity)
+        {
+            velocityZ = -currentMaxVelocity;
+        }
+        //decelerate to the maximum walk velocity
+        else if (backPressed && velocityZ < -currentMaxVelocity)
+        {
+            velocityZ += Time.deltaTime * deceleration;
+            if (velocityZ < -currentMaxVelocity && velocityZ >(-currentMaxVelocity - 0.05f))
+            {
+                velocityZ = -currentMaxVelocity;
+            }
+        }
+        else if(backPressed && velocityZ > -currentMaxVelocity && velocityZ < (-currentMaxVelocity + 0.05f))
+        {
+            velocityZ = -currentMaxVelocity;
+        }
+
+
 
         // locking left
         if (leftPressed && runPressed && velocityX < -currentMaxVelocity)
@@ -153,17 +185,19 @@ public class twoDImensionsAnimation : MonoBehaviour
         bool rightPressed = Input.GetKey("d");
         bool runPressed = Input.GetKey("left shift");
         bool backPressed = Input.GetKey("s");
+        bool downPressed = Input.GetKey("c");
 
         //set current maxVelocity
         float currentMaxVelocity = runPressed ? maximumRunVelocity : maximumWalkVelocity;
 
         //handles changes in velocity
-        changeVelocity(forwardPressed, leftPressed, rightPressed, runPressed, currentMaxVelocity);
-        lockOrResetVelocity(forwardPressed, leftPressed, rightPressed, runPressed, currentMaxVelocity);
+        changeVelocity(forwardPressed, backPressed, leftPressed, rightPressed, runPressed, currentMaxVelocity);
+        lockOrResetVelocity(forwardPressed, backPressed, leftPressed, rightPressed, runPressed, currentMaxVelocity);
  
 
 
         animator.SetFloat(VelocityZHash, velocityZ);
         animator.SetFloat(VelocityXHash, velocityX);
+        animator.SetBool("isCrouching", downPressed);
     }
 }
