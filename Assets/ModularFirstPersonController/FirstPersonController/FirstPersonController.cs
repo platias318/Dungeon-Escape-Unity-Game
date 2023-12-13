@@ -156,6 +156,19 @@ public class FirstPersonController : MonoBehaviour
 
     private void Update()
     {
+
+        if (Input.GetKeyUp(KeyCode.T))
+        {
+            if (playerCamera.tag == "ThirdPersonCamera")
+            {
+                playerCamera = GameObject.FindGameObjectWithTag("FirstPersonCamera").GetComponent<Camera>();
+            }
+            else if (playerCamera.tag == "FirstPersonCamera")
+            {
+                playerCamera = GameObject.FindGameObjectWithTag("ThirdPersonCamera").GetComponent<Camera>();
+            }
+            
+        }
         #region Camera
 
         // Control camera movement

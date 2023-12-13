@@ -2081,6 +2081,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4342671295866887495, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
   m_PrefabInstance: {fileID: 32734504}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &33603937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 33603939}
+  - component: {fileID: 33603938}
+  m_Layer: 0
+  m_Name: CamMonitor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &33603938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33603937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae2d5f1a8de2904a820496c457b937f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ThirdCam: {fileID: 128506987}
+  FirstCam: {fileID: 2128699588353311270}
+  CamMode: 0
+--- !u!4 &33603939
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33603937}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 54.582478, y: 2.770886, z: 3.5132968}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &34187974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6095,7 +6142,7 @@ GameObject:
   - component: {fileID: 128506990}
   m_Layer: 0
   m_Name: ThirdPersonCamera
-  m_TagString: MainCamera
+  m_TagString: ThirdPersonCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98528,7 +98575,6 @@ GameObject:
   - component: {fileID: 926870306147302114}
   - component: {fileID: 8964379692296290219}
   - component: {fileID: 1909443637970192547}
-  - component: {fileID: 8964379692296290220}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -99419,7 +99465,7 @@ GameObject:
   - component: {fileID: 8421586583963802637}
   m_Layer: 0
   m_Name: FirstPersonCamera
-  m_TagString: MainCamera
+  m_TagString: FirstPersonCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100996,21 +101042,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &8964379692296290220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 208278530420166277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ae2d5f1a8de2904a820496c457b937f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ThirdCam: {fileID: 128506987}
-  FirstCam: {fileID: 2128699588353311270}
-  CamMode: 0
 --- !u!1 &9033796170824230335
 GameObject:
   m_ObjectHideFlags: 0
@@ -101154,3 +101185,4 @@ SceneRoots:
   - {fileID: 666199371}
   - {fileID: 787617538}
   - {fileID: 439471556397992073}
+  - {fileID: 33603939}
