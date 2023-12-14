@@ -11,6 +11,9 @@ using UnityEngine.UI;
 public class FirstPersonController : MonoBehaviour
 {
     private Rigidbody rb;
+    private GameObject FirstPersonTransform;// the coordinates of the first person camera
+    private GameObject ThirdPersonTransform; // the coordinates of the third person camera
+    private bool isThirdPerson = true; // the game starts putting you in third person perspective
 
     #region Camera Movement Variables
 
@@ -136,6 +139,9 @@ public class FirstPersonController : MonoBehaviour
 
     void Start()
     {
+        FirstPersonTransform = GameObject.FindGameObjectWithTag("FirstPersonTransform");
+        ThirdPersonTransform = GameObject.FindGameObjectWithTag("ThirdPersonTransform");
+
         if(lockCursor)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -157,17 +163,18 @@ public class FirstPersonController : MonoBehaviour
     private void Update()
     {
 
-        if (Input.GetKeyUp(KeyCode.T))
+        if (Input.GetKeyUp(KeyCode.T)) //If the player wants to change the camera from first person to third and the opossite
         {
-            if (playerCamera.tag == "ThirdPersonCamera")
+            if (isThirdPerson)// it is 3rd person and we want to go to 1st person
             {
-                playerCamera = GameObject.FindGameObjectWithTag("FirstPersonCamera").GetComponent<Camera>();
+                playerCamera.transform.position = FirstPersonTransform.transform.position;
+                isThirdPerson = false;
             }
-            else if (playerCamera.tag == "FirstPersonCamera")
+            else // we are in 1st person and we want to go to 3rd person
             {
-                playerCamera = GameObject.FindGameObjectWithTag("ThirdPersonCamera").GetComponent<Camera>();
+                playerCamera.transform.position = ThirdPersonTransform.transform.position;
+                isThirdPerson = true;
             }
-            
         }
         #region Camera
 
