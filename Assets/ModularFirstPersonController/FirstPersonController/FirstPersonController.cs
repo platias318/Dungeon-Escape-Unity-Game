@@ -11,9 +11,11 @@ using UnityEngine.UI;
 public class FirstPersonController : MonoBehaviour
 {
     private Rigidbody rb;
+    //Third person to first person variables
     private GameObject FirstPersonTransform;// the coordinates of the first person camera
     private GameObject ThirdPersonTransform; // the coordinates of the third person camera
     private bool isThirdPerson = true; // the game starts putting you in third person perspective
+    
 
     #region Camera Movement Variables
 
@@ -142,6 +144,7 @@ public class FirstPersonController : MonoBehaviour
         FirstPersonTransform = GameObject.FindGameObjectWithTag("FirstPersonTransform");
         ThirdPersonTransform = GameObject.FindGameObjectWithTag("ThirdPersonTransform");
 
+
         if(lockCursor)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -176,6 +179,8 @@ public class FirstPersonController : MonoBehaviour
                 isThirdPerson = true;
             }
         }
+
+
         #region Camera
 
         // Control camera movement
@@ -305,6 +310,7 @@ public class FirstPersonController : MonoBehaviour
         {
             HeadBob();
         }
+
     }
 
     void FixedUpdate()
@@ -457,6 +463,7 @@ public class FirstPersonController : MonoBehaviour
             joint.localPosition = new Vector3(Mathf.Lerp(joint.localPosition.x, jointOriginalPos.x, Time.deltaTime * bobSpeed), Mathf.Lerp(joint.localPosition.y, jointOriginalPos.y, Time.deltaTime * bobSpeed), Mathf.Lerp(joint.localPosition.z, jointOriginalPos.z, Time.deltaTime * bobSpeed));
         }
     }
+
 }
 
 

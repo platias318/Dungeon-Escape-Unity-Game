@@ -6,6 +6,9 @@ TagManager:
   tags:
   - FirstPersonTransform
   - ThirdPersonTransform
+  - stepRayLower
+  - stepRayUpper
+  - Skeleton
   layers:
   - Default
   - TransparentFX
