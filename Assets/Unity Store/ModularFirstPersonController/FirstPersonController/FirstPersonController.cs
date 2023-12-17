@@ -322,6 +322,7 @@ public class FirstPersonController : MonoBehaviour
                 isWalking = true;
                 if (!walkingSoundEffect.isPlaying && !isCrouched && !isSprinting)
                 {
+                    Debug.Log("walking sound playing");
                         if (frameCounter % 7 == 0)
                         { // make the effect play every 10 frames so it matches the footsteps
                             walkingSoundEffect.Play();
@@ -476,13 +477,11 @@ public class FirstPersonController : MonoBehaviour
         // Reduces walkSpeed
         else
         {
-            Debug.Log("second if");
             walkSpeed *= speedReduction;
 
             isCrouched = true;
             if (isWalking)
             {
-                Debug.Log("is walking and crouching");
                 crouchingSoundEffect.Play();
             }
         }
