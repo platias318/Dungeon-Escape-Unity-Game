@@ -186,6 +186,7 @@ public class twoDImensionsAnimation : MonoBehaviour
         bool runPressed = Input.GetKey("left shift");
         bool backPressed = Input.GetKey("s");
         bool downPressed = Input.GetKey("c");
+        bool jumpPressed = Input.GetKey("space");
 
         //set current maxVelocity
         float currentMaxVelocity = runPressed ? maximumRunVelocity : maximumWalkVelocity;
@@ -199,5 +200,6 @@ public class twoDImensionsAnimation : MonoBehaviour
         animator.SetFloat(VelocityZHash, velocityZ);
         animator.SetFloat(VelocityXHash, velocityX);
         animator.SetBool("isCrouching", downPressed);
+        animator.SetBool("isJumping", jumpPressed);
     }
 }
