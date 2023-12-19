@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Starting menu.unity
     guid: 5e5b4149355203e4fbef32cab8f77ce5
   - enabled: 1
+    path: Assets/Scenes/StoryTelling.unity
+    guid: 81264a2d57896074d8226c60ad346de3
+  - enabled: 1
     path: Assets/Scenes/Stage1.unity
     guid: 068d6b201a48bd5469b21156e4a272e9
   - enabled: 1
