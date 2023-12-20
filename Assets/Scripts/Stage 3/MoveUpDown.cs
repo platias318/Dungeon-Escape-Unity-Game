@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MoveUpDown : MonoBehaviour
 {
-    [SerializeField] float speed = 1.0f;
-    [SerializeField] float amplitude = 3.0f;
-    [SerializeField] float minY = 0.0f;
+    [SerializeField] float speed = 0.5f;
+    [SerializeField] float amplitude = 6.0f;
+    [SerializeField] float minY = -2.0f;
     [SerializeField] float maxY = 4.0f;
 
     void Update()

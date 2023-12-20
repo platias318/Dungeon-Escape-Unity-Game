@@ -17,11 +17,12 @@ public class BreakableObject : MonoBehaviour
             Vector3 lowerPosition = transform.position - new Vector3(0f, lowerOffset, 0f);
             Quaternion newR = transform.rotation;
             Instantiate(brokenPrefab, transform.position, Quaternion.Euler(270.0f, 0f, 0f));
+            MeshCollider meshCollider = brokenPrefab.GetComponent<MeshCollider>();
+            Destroy(meshCollider);
 
             // Destroy the current breakable object
             Destroy(gameObject);
-            
+
         }
     }
 }
-
