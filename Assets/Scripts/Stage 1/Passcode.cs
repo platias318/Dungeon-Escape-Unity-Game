@@ -11,6 +11,7 @@ public class Passcode : MonoBehaviour
     int NumberIndex = 0;
     string alpha;
     [SerializeField]public TextMeshProUGUI UiText = null;
+    [SerializeField] private Canvas KeyPadObj;
 
     public void CodeFunction(string Numbers)
     {
@@ -23,7 +24,11 @@ public class Passcode : MonoBehaviour
     {
         if(Number == Code)
         {
-            Debug.Log("KeypadWorking");
+            if (KeyPadObj.enabled)
+            {
+                KeyPadObj.enabled = false;
+                // logic to go to the next stage
+            }
         }
     }
     public void Delete()
