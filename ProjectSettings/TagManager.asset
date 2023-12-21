@@ -9,6 +9,9 @@ TagManager:
   - stepRayLower
   - stepRayUpper
   - Skeleton
+  - PutCodeCanvas
+  - KeyPadCanvas
+  - PlayerSkeleton
   layers:
   - Default
   - TransparentFX
