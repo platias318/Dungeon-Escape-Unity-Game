@@ -7,6 +7,6 @@ public class MainStoryLoader : MonoBehaviour
 {
    void OnEnable()
    {
-        SceneManager.LoadScene("Stage3", LoadSceneMode.Single);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1, LoadSceneMode.Single);
    }
 }
