@@ -32,16 +32,15 @@ public class PresurePlate : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.name == objectTag)
-        {
-            collision.transform.parent = transform;
-            GetComponent<Renderer>().material = newMaterial;
-            sink = true;
-            moveBack = false;
+        
+          collision.transform.parent = transform;
+          GetComponent<Renderer>().material = newMaterial;
+          sink = true;
+          moveBack = false;
             
             
 
-        }
+        
     }
 
     void Update()
@@ -62,7 +61,8 @@ public class PresurePlate : MonoBehaviour
             transform.Translate(Vector3.up * s);
             sunkAmount -= s;
         }
-       
+
+        Debug.Log(sunkAmount);
     }
    
         
@@ -70,13 +70,12 @@ public class PresurePlate : MonoBehaviour
    
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.transform.name == objectTag)
-        {
-            collision.transform.parent = null;
-            GetComponent<Renderer>().material = originalMaterial;
-            sink = false;
-            moveBack = true;
+        
+        collision.transform.parent = null;
+        GetComponent<Renderer>().material = originalMaterial;
+        sink = false;
+        moveBack = true;
 
-        }
+       
     }
 }
