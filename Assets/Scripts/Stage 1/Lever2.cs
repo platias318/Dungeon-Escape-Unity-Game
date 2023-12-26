@@ -6,6 +6,8 @@ public class Lever2 : MonoBehaviour
 {
     [SerializeField] private GameObject lever;
     [SerializeField] private Canvas canvasObj;
+    [SerializeField] private AudioSource leverSoundEffect;
+    public LeverChecker leverChecker;
 
     private bool isEPressed = false;
     private float lastEPressTime = 0f;
@@ -61,6 +63,11 @@ public class Lever2 : MonoBehaviour
     {
         if (isEPressed && Time.time - lastEPressTime >= delayBetweenPresses)
         {
+            if (leverSoundEffect != null)
+            {
+                leverSoundEffect.Play();
+            }
+
             lastEPressTime = Time.time;
 
             RotateLever();
@@ -68,6 +75,7 @@ public class Lever2 : MonoBehaviour
             isEPressed = false;
 
             UpdateCounters();
+            leverChecker.OnLeverChanged();
         }
     }
 

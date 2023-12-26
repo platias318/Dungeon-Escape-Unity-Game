@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Passcode : MonoBehaviour
 {
-    string Code = "12345";
+    string Code = "1357911246810";
     string Number = null;
     int NumberIndex = 0;
     string alpha;

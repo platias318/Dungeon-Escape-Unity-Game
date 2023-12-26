@@ -4,7 +4,7 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
-
+using Unity.VisualScripting;
 
 public class Door : MonoBehaviour
 {
@@ -12,6 +12,7 @@ public class Door : MonoBehaviour
     [SerializeField] private float rotationSpeed = 10f;
     [SerializeField] private float rotationAngle = 90f;
     [SerializeField] private bool isOpen = false;
+    [SerializeField] private AudioSource sound;
     float direction =1;
     bool isRotating = false;
     Vector3 v;
@@ -19,16 +20,16 @@ public class Door : MonoBehaviour
 
     GameObject player;
 
+
     private void Update()
     {
         if (triggered && Input.GetKeyDown(KeyCode.E) && !isRotating)
         {
-
-            
-           
-
-
-            if (isOpen)
+            if (sound != null)
+            {
+                sound.Play();
+            }
+            if (isOpen) 
             {
                 v = Vector3.down;
 
@@ -81,12 +82,6 @@ public class Door : MonoBehaviour
          Debug.Log("trigger exit");
          triggered = false;
 
-       
     }
-
-
-
-    
-
    
 }
