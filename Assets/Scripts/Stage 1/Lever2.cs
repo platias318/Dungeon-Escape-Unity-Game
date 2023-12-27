@@ -6,7 +6,7 @@ public class Lever2 : MonoBehaviour
 {
     [SerializeField] private GameObject lever;
     [SerializeField] private Canvas canvasObj;
-    [SerializeField] private AudioSource leverSoundEffect;
+    [SerializeField] private AudioSource leverSoundEffect; // the audio effect when a lever is moved
     public LeverChecker leverChecker;
 
     private bool isEPressed = false;
@@ -14,23 +14,24 @@ public class Lever2 : MonoBehaviour
     private float delayBetweenPresses = 0.5f;
     private bool middle = true;
 
+    //static counters so that we keep track the miber of times a lever is interacted with
     private static int counterR = 0;
     private static int counterG = 0;
     private static int counterO = 0;
 
     void Start()
     {
-        canvasObj.enabled = false;
+        canvasObj.enabled = false; // the message that we can press the lever is disabled at the start
     }
 
     void Update()
     {
-        isEPressed = Input.GetKey(KeyCode.E);
+        isEPressed = Input.GetKey(KeyCode.E); // check of the key is pressed
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        ShowCanvas();
+        ShowCanvas(); // show the text that the user is elligible to move the lever
     }
 
     private void OnTriggerStay(Collider other)
@@ -40,7 +41,7 @@ public class Lever2 : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        HideCanvas();
+        HideCanvas(); //hides canvas when we leave the trigger box near the lever
     }
 
     private void ShowCanvas()
@@ -86,12 +87,12 @@ public class Lever2 : MonoBehaviour
         middle = !middle;
     }
 
-    private void UpdateCounters()
+    private void UpdateCounters() //updates the counters when called
     {
         if (gameObject.name == "OrangeSwitch") counterO++;
         else if (gameObject.name == "GreenSwitch") counterG++;
         else if (gameObject.name == "RedSwitch") counterR++;
-        else if (gameObject.name == "WhiteSwitch") ResetCounters();
+        else if (gameObject.name == "WhiteSwitch") ResetCounters(); //reset the counters when the white is pressed
     }
 
     private void ResetCounters()

@@ -5,12 +5,12 @@ using UnityEngine.Events;
 
 public class LeverChecker : MonoBehaviour
 {
-    [SerializeField] private int OrangeCode;
-    [SerializeField] private int GreenCode;
-    [SerializeField] private int RedCode;
-    [SerializeField] private GameObject door;
-    [SerializeField] private AudioSource doorUnlocked;
-    private bool hasPlayed = false;
+    [SerializeField] private int OrangeCode; //the int code for the orange coloured lever
+    [SerializeField] private int GreenCode; //the int code for the green coloured lever
+    [SerializeField] private int RedCode; //the int code for the red coloured lever
+    [SerializeField] private GameObject door; //the door that the levers are gonna be opening when pressed in the right amount of times
+    [SerializeField] private AudioSource doorUnlocked; //the sound when the door is unlocked with success
+    private bool hasPlayed = false; //boolean that is used to see if the audio effect of the door being unlocked has been played
 
     // Unity Event to be triggered when levers are changed
     public UnityEvent onLeverChanged;
