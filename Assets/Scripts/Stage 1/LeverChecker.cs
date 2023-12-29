@@ -45,6 +45,7 @@ public class LeverChecker : MonoBehaviour
             }
             if (door.GetComponent<Door>().enabled == false)
             {
+                Debug.Log("enables the door opener");
                 door.GetComponent<Door>().enabled = true;
             }
         }

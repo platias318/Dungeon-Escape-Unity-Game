@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class PressurePlate2 : MonoBehaviour
 {
     [SerializeField] private GameObject pressurePlateRed;
     [SerializeField] private GameObject pressurePlateGreen;
+    [SerializeField] private GameObject door;
     private bool isEnabled = false;
     // Start is called before the first frame update
     void Start()
@@ -18,20 +20,41 @@ public class PressurePlate2 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
-        if (!isEnabled) { //if the pressure plate was not enabled, enable it because the user or an object is standing on it
-            pressurePlateRed.SetActive(false);
-            pressurePlateGreen.SetActive(true);
-            isEnabled = true;
+        if (other.tag == "Barrels")
+        {
+            if (!isEnabled)
+            { //if the pressure plate was not enabled, enable it because the user or an object is standing on it
+                pressurePlateRed.SetActive(false);
+                pressurePlateGreen.SetActive(true);
+                isEnabled = true;
+            }
         }
 
     }
+    public void DisablePressurePlate()
+    {
+        pressurePlateRed.SetActive(true);
+        pressurePlateGreen.SetActive(false);
+        isEnabled = false;
+    }
+
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Barrels")
+        {
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
-        if (isEnabled) //if the user or an object is leaving the pressure plate , disable it and turn it into red       
+        if (other.tag == "Barrels")
         {
-            pressurePlateRed.SetActive(true);
-            pressurePlateGreen.SetActive(false);
-            isEnabled = false;
+            if (isEnabled) //if the user or an object is leaving the pressure plate , disable it and turn it into red       
+            {
+                pressurePlateRed.SetActive(true);
+                pressurePlateGreen.SetActive(false);
+                isEnabled = false;
+            }
         }
     }
 

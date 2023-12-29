@@ -14,12 +14,8 @@ public class ItemPickup : MonoBehaviour
 
     void Start()
     {
-        if (canvasObj != null)
-        {
             canvasObj.enabled = false;
-        }
             gameObject.SetActive(true);
-        
     }
 
     void Pickup()
@@ -31,10 +27,7 @@ public class ItemPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!canvasObj.enabled && canvasObj!=null) 
-        {
             canvasObj.enabled = true;
-        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -46,7 +39,7 @@ public class ItemPickup : MonoBehaviour
             lastEPressTime = Time.time;
             isEPressed = !isEPressed; // Toggle the flag
 
-            if (isEPressed && InventoryManager.Instance.Items.Count < 4)//////
+            if (isEPressed && InventoryManager.Instance.Items.Count < 4)
             {
                 canvasObj.enabled = false;
                 gameObject.SetActive(false);

@@ -12,6 +12,10 @@ TagManager:
   - PutCodeCanvas
   - KeyPadCanvas
   - PlayerSkeleton
+  - Barrels
+  - DungeonDoor
+  - DropItemPosition
+  - PickItem
   layers:
   - Default
   - TransparentFX
