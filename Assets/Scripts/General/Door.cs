@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using Unity.VisualScripting;
+using UnityEditor.SceneManagement;
 
 public class Door : MonoBehaviour
 {
@@ -13,8 +14,9 @@ public class Door : MonoBehaviour
     [SerializeField] private float rotationAngle = 90f;
     [SerializeField] private bool isOpen = false;
     [SerializeField] private AudioSource sound;
-    float direction =1;
+    float direction = 1;
     bool isRotating = false;
+    public bool stageDoor;
     Vector3 v;
     Vector3 targetDirection;
 
@@ -23,7 +25,7 @@ public class Door : MonoBehaviour
 
     private void Update()
     {
-        if (triggered && Input.GetKeyDown(KeyCode.E) && !isRotating)
+        if (((triggered && Input.GetKeyDown(KeyCode.E)) || stageDoor) && !isRotating)
         {
             if (sound != null)
             {
@@ -37,7 +39,7 @@ public class Door : MonoBehaviour
             else
             {
                 v = Vector3.up;
-                //targetDirection = player.transform.position - transform.position;
+
                 targetDirection = player.transform.InverseTransformPoint(transform.position);
                 Debug.Log(targetDirection);
                 direction = Math.Sign(targetDirection.x);
@@ -46,9 +48,10 @@ public class Door : MonoBehaviour
             StartCoroutine(RotateDoor());
             
         }
+        
     }
 
-    IEnumerator RotateDoor()
+    public IEnumerator RotateDoor()
     {
         isRotating = true;
 
@@ -64,6 +67,8 @@ public class Door : MonoBehaviour
 
         isRotating = false;
         isOpen = !isOpen;
+        stageDoor = false;
+
 
     }
 

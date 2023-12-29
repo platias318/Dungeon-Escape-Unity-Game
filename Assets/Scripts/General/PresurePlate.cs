@@ -49,7 +49,7 @@ public class PresurePlate : MonoBehaviour
         if (sink && (sunkAmount < sinkAmount))
         {
            s = downSpeed * Time.deltaTime;
-           Debug.Log(transform.position.y);
+           //Debug.Log(transform.position.y);
            transform.Translate(Vector3.down * s);
            sunkAmount += s;
 
@@ -57,12 +57,12 @@ public class PresurePlate : MonoBehaviour
         if (moveBack && sunkAmount > 0)
         {
             s = upSpeed * Time.deltaTime;
-            Debug.Log(transform.position.y);
+            //Debug.Log(transform.position.y);
             transform.Translate(Vector3.up * s);
             sunkAmount -= s;
         }
 
-        Debug.Log(sunkAmount);
+        //Debug.Log(sunkAmount);
     }
    
         
