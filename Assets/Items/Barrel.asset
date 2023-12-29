@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 334a9b43adf041a499b5f7946b8580a2, type: 3}
   m_Name: Barrel
   m_EditorClassIdentifier: 
+  prefab: {fileID: 4225000085283584688, guid: 117d8959f4dec0249ab056db3be756e6, type: 3}
   id: 0
   itemName: Barrel
   icon: {fileID: 21300000, guid: b37db1d078c6d684d8b95de2d48ccd22, type: 3}

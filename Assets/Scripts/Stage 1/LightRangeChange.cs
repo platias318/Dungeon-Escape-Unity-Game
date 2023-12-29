@@ -5,13 +5,12 @@ using UnityEngine;
 
 public class LightRangeChange : MonoBehaviour
 {
-    private Light torchLight;
+    private Light torchLight; //the light source we want to interact with
     [SerializeField] private float minIntensity = 0.4f;
     [SerializeField]private float maxIntensity= 2.7f;
     [SerializeField]private float oscillationSpeed = 2.0f;      // Speed of the oscillation
     void Start()
     {
-     //   GameObject GameObject = gameObject;
         torchLight = GetComponent<Light>(); 
     }
 

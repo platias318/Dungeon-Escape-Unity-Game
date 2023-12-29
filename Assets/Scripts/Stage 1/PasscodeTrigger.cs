@@ -1,19 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PasscodeTrigger : MonoBehaviour
 {
 
-    [SerializeField]private Canvas canvasObj;
-    [SerializeField]private Canvas KeyPadObj;
-    private bool OpenKeyPad = false;
-    private bool isEPressed = false;
-    private float lastEPressTime = 0f;
+    [SerializeField]private Canvas canvasObj; //the canvas that appears when the user is near the keypad and can press 'E' to use it
+    [SerializeField]private Canvas KeyPadObj;//the keypad canvas object
+    private bool OpenKeyPad = false; //if the keypad canvas is opened in the current frame
+    private bool isEPressed = false; //if the key 'E' has been pressed so that the keypad appears
+    private float lastEPressTime = 0f; //last frame the key 'E' was pressed
     private float delayBetweenPresses = 0.5f;
 
-    void Start()
+    void Start() // disable both canvas in the start
     {
         canvasObj.enabled = false;
         KeyPadObj.enabled = false;
@@ -21,7 +18,7 @@ public class PasscodeTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-            if (!canvasObj.enabled) // when the player approaches the keypad, the text that he can enable it by pressing E is showing
+            if (!canvasObj.enabled) // when the player approaches the keypad, the text that he can enable it by pressing 'E' is showing
             {
                 canvasObj.enabled = true;
             }
@@ -37,10 +34,10 @@ public class PasscodeTrigger : MonoBehaviour
 
             if (isEPressed)
             {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>().lockCursor = false;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>().lockCursor = false;//lock cursor so that it doesnt move the player when we move the mouse
                 Cursor.lockState = CursorLockMode.None;
-                canvasObj.enabled = false;
-                KeyPadObj.enabled = true;
+                canvasObj.enabled = false; //disable the 'press e to open the keypad' canvas element
+                KeyPadObj.enabled = true; // enable the keypad canvas sto that the user can interact with it
                 OpenKeyPad = true;
             }
             else

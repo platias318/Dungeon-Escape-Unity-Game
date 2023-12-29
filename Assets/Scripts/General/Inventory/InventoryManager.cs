@@ -43,6 +43,26 @@ public class InventoryManager : MonoBehaviour
         }
         return null;
     }
+    public void UseItem(Item item)
+    {
+        // Remove the item from the inventory
+        Remove(item);
+
+        // Update the UI
+        ListItems();
+    }
+
+    public void DropItem(Item item , GameObject dropPosition)
+    {
+        // Instantiate a new item at the drop position
+        Instantiate(item.prefab, dropPosition.transform.position, Quaternion.identity);
+
+        // Remove the item from the inventory
+        Remove(item);
+
+        // Update the UI
+        ListItems();
+    }
 
     public void ListItems()
     {

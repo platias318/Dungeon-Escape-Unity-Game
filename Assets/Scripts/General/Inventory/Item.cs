@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Item : ScriptableObject
 {
+    [SerializeField] public  GameObject prefab;
     public int id;
     public string itemName;
     public Sprite icon;
