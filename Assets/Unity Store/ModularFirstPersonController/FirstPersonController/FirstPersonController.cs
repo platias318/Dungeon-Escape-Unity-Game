@@ -482,6 +482,11 @@ public class FirstPersonController : MonoBehaviour
             walkSpeed /= speedReduction;
 
             isCrouched = false;
+
+            if (isWalking && !walkingSoundEffect.isPlaying)
+            {
+                walkingSoundEffect.Play();
+            }
         }
         // Crouches player down to set height
         // Reduces walkSpeed
