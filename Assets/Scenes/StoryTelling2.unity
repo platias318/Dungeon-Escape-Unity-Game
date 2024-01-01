@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -152,7 +152,7 @@ PlayableDirector:
   m_GameObject: {fileID: 250910246}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: db7229d509663c24d904793eda371ef3, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 572dee07e2dca994ca72a0d1adf2473f, type: 2}
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -168,6 +168,16 @@ PlayableDirector:
     value: {fileID: 1790101836}
   - key: {fileID: -2862474928990272804, guid: db7229d509663c24d904793eda371ef3, type: 2}
     value: {fileID: 0}
+  - key: {fileID: -7492100080081298426, guid: db7229d509663c24d904793eda371ef3, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -5593298576863356341, guid: 572dee07e2dca994ca72a0d1adf2473f, type: 2}
+    value: {fileID: 1084846575}
+  - key: {fileID: -2778887661327648164, guid: 572dee07e2dca994ca72a0d1adf2473f, type: 2}
+    value: {fileID: 720366425}
+  - key: {fileID: 7136085864257243239, guid: 572dee07e2dca994ca72a0d1adf2473f, type: 2}
+    value: {fileID: 1928386077}
+  - key: {fileID: -3301883929498404217, guid: 572dee07e2dca994ca72a0d1adf2473f, type: 2}
+    value: {fileID: 1790101836}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &250910248
@@ -451,7 +461,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -3.3661652, z: 0, w: 0}
+  m_margin: {x: 175.06512, y: -3.3661652, z: 178.94409, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -481,7 +491,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000015736, y: -215}
+  m_AnchoredPosition: {x: -0.000015736, y: -90}
   m_SizeDelta: {x: 1393.6, y: 135.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1084846575
@@ -586,7 +596,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 3.175583, z: 0, w: 0}
+  m_margin: {x: 178.62097, y: 3.175583, z: 180.70251, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -616,7 +626,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000016212, y: -215}
+  m_AnchoredPosition: {x: 0.000016212, y: -89}
   m_SizeDelta: {x: 1402.2021, y: 143.6917}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1558217966
@@ -925,7 +935,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -1.7306976, z: 0, w: 0}
+  m_margin: {x: 185.57999, y: -1.7306976, z: 173.78906, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -955,7 +965,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0022888, y: -215}
+  m_AnchoredPosition: {x: -0.0022888, y: -100}
   m_SizeDelta: {x: 1393.6, y: 135.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1660057539 &9223372036854775807
