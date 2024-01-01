@@ -6,11 +6,12 @@ using UnityEngine.InputSystem;
 
 public class BreakableObject : MonoBehaviour
 {
-    [SerializeField] GameObject brokenPrefab; // Reference to the broken object prefab
-    [SerializeField] float lowerOffset = 1.3f; // Adjust the offset for the lower position of the broken object
+    [SerializeField] float lowerOffset = 0.0f; // Adjust the offset for the lower position of the broken object
     [SerializeField] private Canvas canvasObj;
+    [SerializeField] private AudioSource sound;
     Item hammer;
     private bool isEPressed = false;
+    private bool destroyed = false;
 
 
     void Start()
@@ -25,26 +26,26 @@ public class BreakableObject : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        ShowCanvas(); 
+        if (!destroyed) { ShowCanvas(); }
     }
 
     private void OnTriggerStay(Collider other)
     {
         hammer = InventoryManager.Instance.getItem("Hammer");
-        if (hammer != null && isEPressed)
+        if (hammer != null && isEPressed && !destroyed)
         {
+            if (sound != null)
+            {
+                sound.Play();
+            }
             HideCanvas();
-            // Spawn the broken object prefab at the same position and rotation
-            Vector3 lowerPosition = transform.position - new Vector3(0f, lowerOffset, 0f);
-            Quaternion newR = transform.rotation;
-            Instantiate(brokenPrefab, transform.position, Quaternion.Euler(270.0f, 0f, 0f));
-            // Assume "gameObject" is your GameObject
-            MeshRenderer meshRenderer = brokenPrefab.GetComponent<MeshRenderer>();
-            meshRenderer.enabled = true;
-
-            // Destroy the current breakable object
-            Destroy(gameObject);
-            Destroy(brokenPrefab);
+            // Move the current breakable object to a new position and rotation
+            Vector3 newPosition = transform.position - new Vector3(0f, lowerOffset, 0f);
+            Quaternion newRotation = Quaternion.Euler(270.0f, 0f, 0f);
+            transform.SetPositionAndRotation(newPosition, newRotation);
+            MeshCollider meshCollider = GetComponent<MeshCollider>();
+            Destroy(meshCollider);
+            destroyed = true;
         }
     }
 
