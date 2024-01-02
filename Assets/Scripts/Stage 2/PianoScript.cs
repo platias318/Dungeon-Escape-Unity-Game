@@ -44,6 +44,7 @@ public class PianoScript : MonoBehaviour
     public Material cubeMaterial;
     public Material oldMaterial;
     public Material wrongMaterial;
+    public Material rightMaterial;
     private float startTime;
 
     int correctCounter = 0;
@@ -157,8 +158,16 @@ public class PianoScript : MonoBehaviour
 
         if ((Time.time - startTime >= 3f) && turnOffCubes && (correctCounter < 3))
         {
-            cube1.GetComponent<Renderer>().material = oldMaterial;
-            cube2.GetComponent<Renderer>().material = oldMaterial;
+            if(note_counter ==0)
+            {
+                cube1.GetComponent<Renderer>().material = oldMaterial;
+            }
+            if (note_counter == 1)
+            {
+                cube2.GetComponent<Renderer>().material = oldMaterial;
+            }
+
+            
             played = false;
             turnOffCubes = false;
         }
@@ -230,6 +239,7 @@ public class PianoScript : MonoBehaviour
         if (note_counter == 1)
         {
             cube1.GetComponent<Renderer>().material = cubeMaterial;
+            
         }
 
         if(note_counter == 2)

@@ -14,7 +14,7 @@ public class Door : MonoBehaviour
     [SerializeField] private float rotationAngle = 90f;
     [SerializeField] private bool isOpen = false;
     [SerializeField] private AudioSource sound;
-    float direction = 1;
+    public  float direction = 1;
     bool isRotating = false;
     public bool stageDoor;
     Vector3 v;
