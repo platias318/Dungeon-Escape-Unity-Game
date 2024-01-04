@@ -27151,19 +27151,17 @@ MonoBehaviour:
 
     Move right: D
 
-    Move left: A
-
-    Move
-    backwards: S
+    Move backwards:
+    S
 
     Crouch: C
 
     Toggle first/third person: T
 
-    Run: Left
-    shift
+    Run: Left shift
 
-    Jump: Space
+    Jump:
+    Space
 
     Pick item: E
 
