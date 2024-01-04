@@ -162,10 +162,9 @@ public class PianoScript : MonoBehaviour
             {
                 cube1.GetComponent<Renderer>().material = oldMaterial;
             }
-            if (note_counter == 1)
-            {
-                cube2.GetComponent<Renderer>().material = oldMaterial;
-            }
+           
+            cube2.GetComponent<Renderer>().material = oldMaterial;
+            
 
             
             played = false;
