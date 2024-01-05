@@ -9,7 +9,7 @@ public class ItemPickup : MonoBehaviour
     [SerializeField] private Canvas canvasObj;
     private bool isEPressed = false;
     private float lastEPressTime = 0f;
-    private float delayBetweenPresses = 0.5f;
+    private float delayBetweenPresses = 0.5f;       //keeps a delay between presses of the button E
 
 
     void Start()
@@ -18,7 +18,7 @@ public class ItemPickup : MonoBehaviour
             gameObject.SetActive(true);
     }
 
-    void Pickup()
+    void Pickup()          //pick the item and pass it to the InventoryManager to handle it
     {
         InventoryManager.Instance.Add(Item);
             Destroy(gameObject);
@@ -32,14 +32,14 @@ public class ItemPickup : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        // Check if E is pressed and there's a delay since the last press
+        //check if E is pressed and there's a delay since the last press
         if (Input.GetKey("e") && Time.time - lastEPressTime >= delayBetweenPresses)
         {
 
             lastEPressTime = Time.time;
-            isEPressed = !isEPressed; // Toggle the flag
+            isEPressed = !isEPressed; //toggle the flag
 
-            if (isEPressed && InventoryManager.Instance.Items.Count < 4)
+            if (isEPressed && InventoryManager.Instance.Items.Count < 4)    //if it fits in the inventory, pick it up
             {
                 canvasObj.enabled = false;
                 gameObject.SetActive(false);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MagicHat : MonoBehaviour
 {
-    private bool isEPressed = false;
+    private bool isEPressed = false;          //same principle as switch script
     private float lastEPressTime = 0f;
     private float delayBetweenPresses = 0.5f;
     [SerializeField] private GameObject symbol1;
@@ -15,7 +15,7 @@ public class MagicHat : MonoBehaviour
     private MeshRenderer meshRenderer2;
     private MeshRenderer meshRenderer3;
 
-    private void Start()
+    private void Start()        //get the mesh renderer of our symbols
     {
         meshRenderer1 = symbol1.GetComponent<MeshRenderer>();
         meshRenderer2 = symbol2.GetComponent<MeshRenderer>();
@@ -31,7 +31,7 @@ public class MagicHat : MonoBehaviour
 
             lastEPressTime = Time.time;
             isEPressed = !isEPressed; // Toggle the flag
-            meshRenderer1.enabled = true;
+            meshRenderer1.enabled = true;  //when the user wears the hat we want the symbols to appear, so we enable their mesh renderer (initially it is disabled)
             meshRenderer2.enabled = true;
             meshRenderer3.enabled = true;
         }

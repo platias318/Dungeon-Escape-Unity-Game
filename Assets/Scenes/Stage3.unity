@@ -1120,7 +1120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8561612998583760826, guid: 23e2a639ca3c8bb43ba7ae9988ecc0e4, type: 3}
       propertyPath: m_Intensity
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8561612998583760826, guid: 23e2a639ca3c8bb43ba7ae9988ecc0e4, type: 3}
       propertyPath: m_Shadows.m_NearPlane
@@ -3419,6 +3419,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7969972704443486089, guid: 3ef94e73d5607784fbcbba8de4155b1e, type: 3}
   m_PrefabInstance: {fileID: 1725719395}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &125587781
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 139400897}
+    m_Modifications:
+    - target: {fileID: 4725356937742542618, guid: c559a22601843db4c927941c06a8b94b, type: 3}
+      propertyPath: m_Name
+      value: Candlestick_Wall (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725356937742777146, guid: c559a22601843db4c927941c06a8b94b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.124
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725356937742777146, guid: c559a22601843db4c927941c06a8b94b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.471
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725356937742777146, guid: c559a22601843db4c927941c06a8b94b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -14.321
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725356937742777146, guid: c559a22601843db4c927941c06a8b94b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725356937742777146, guid: c559a22601843db4c927941c06a8b94b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725356937742777146, guid: c559a22601843db4c927941c06a8b94b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725356937742777146, guid: c559a22601843db4c927941c06a8b94b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725356937742777146, guid: c559a22601843db4c927941c06a8b94b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725356937742777146, guid: c559a22601843db4c927941c06a8b94b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725356937742777146, guid: c559a22601843db4c927941c06a8b94b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c559a22601843db4c927941c06a8b94b, type: 3}
+--- !u!4 &125587782 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4725356937742777146, guid: c559a22601843db4c927941c06a8b94b, type: 3}
+  m_PrefabInstance: {fileID: 125587781}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &125890404
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3594,6 +3656,7 @@ Transform:
   - {fileID: 218306884}
   - {fileID: 1087398189}
   - {fileID: 1416537542}
+  - {fileID: 125587782}
   - {fileID: 1488545756}
   - {fileID: 433465123}
   - {fileID: 169004401}
@@ -23783,7 +23846,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 113386650, guid: c559a22601843db4c927941c06a8b94b, type: 3}
       propertyPath: m_Range
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 113386650, guid: c559a22601843db4c927941c06a8b94b, type: 3}
       propertyPath: m_Shadows.m_NearPlane
@@ -29159,6 +29222,10 @@ PrefabInstance:
     - target: {fileID: 8561612998583760826, guid: 23e2a639ca3c8bb43ba7ae9988ecc0e4, type: 3}
       propertyPath: m_Range
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8561612998583760826, guid: 23e2a639ca3c8bb43ba7ae9988ecc0e4, type: 3}
+      propertyPath: m_Intensity
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8561612998583760826, guid: 23e2a639ca3c8bb43ba7ae9988ecc0e4, type: 3}
       propertyPath: m_Shadows.m_NearPlane
@@ -37931,6 +37998,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8561612998583760826, guid: 23e2a639ca3c8bb43ba7ae9988ecc0e4, type: 3}
+      propertyPath: m_Intensity
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8561612998583760826, guid: 23e2a639ca3c8bb43ba7ae9988ecc0e4, type: 3}
       propertyPath: m_Shadows.m_NearPlane
       value: 0.099999994
       objectReference: {fileID: 0}
@@ -38015,7 +38086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8561612998583760826, guid: 23e2a639ca3c8bb43ba7ae9988ecc0e4, type: 3}
       propertyPath: m_Intensity
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8561612998583760826, guid: 23e2a639ca3c8bb43ba7ae9988ecc0e4, type: 3}
       propertyPath: m_Shadows.m_NearPlane
@@ -41480,7 +41551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8561612998583760826, guid: 23e2a639ca3c8bb43ba7ae9988ecc0e4, type: 3}
       propertyPath: m_Intensity
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8561612998583760826, guid: 23e2a639ca3c8bb43ba7ae9988ecc0e4, type: 3}
       propertyPath: m_Shadows.m_NearPlane
@@ -41844,7 +41915,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8561612998583760826, guid: 23e2a639ca3c8bb43ba7ae9988ecc0e4, type: 3}
       propertyPath: m_Intensity
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8561612998583760826, guid: 23e2a639ca3c8bb43ba7ae9988ecc0e4, type: 3}
       propertyPath: m_Shadows.m_NearPlane
@@ -42412,7 +42483,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 113386650, guid: c559a22601843db4c927941c06a8b94b, type: 3}
       propertyPath: m_Range
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 113386650, guid: c559a22601843db4c927941c06a8b94b, type: 3}
       propertyPath: m_Shadows.m_NearPlane

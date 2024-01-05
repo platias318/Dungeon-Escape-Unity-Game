@@ -8,7 +8,7 @@ public class Note : MonoBehaviour
 {
 
     [SerializeField] private Canvas canvasObj;
-    [SerializeField] private Image image;
+    [SerializeField] private Image image;          //image of the note
     [SerializeField] private TextMeshProUGUI text;
 
     private bool open = false;
@@ -18,7 +18,7 @@ public class Note : MonoBehaviour
 
     void Start()
     {
-        canvasObj.enabled = false; // the message that we can press the lever is disabled at the start
+        canvasObj.enabled = false; // the message that we can press the lever is disabled at the start 
         image.enabled = false;
     }
 
@@ -30,15 +30,15 @@ public class Note : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Entered");
-        ShowCanvas();
+        ShowCanvas();   //shows the note in the screen
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (isEPressed && Time.time - lastEPressTime >= delayBetweenPresses)
+        if (isEPressed && Time.time - lastEPressTime >= delayBetweenPresses)          //same principle as Switch script
         {
             lastEPressTime = Time.time;
-            if (open)
+            if (open)                           //if the note is closed open it and vice versa
             {
                 open = false;
                 image.enabled = false;
@@ -56,7 +56,7 @@ public class Note : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)        //on exit close the note if the player hasnt closed it
     {
         Debug.Log("Left");
         HideCanvas();
@@ -73,7 +73,7 @@ public class Note : MonoBehaviour
         }
     }
 
-    private void HideCanvas()
+    private void HideCanvas()          
     {
         if (canvasObj.enabled)
         {
