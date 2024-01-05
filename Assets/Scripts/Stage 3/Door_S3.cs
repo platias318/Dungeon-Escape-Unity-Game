@@ -7,9 +7,9 @@ using System;
 using Unity.VisualScripting;
 using UnityEditor.SceneManagement;
 
-public class Door_S3 : MonoBehaviour
+public class Door_S3 : MonoBehaviour                //door script adjusted for the needs of stage 3
 {
-    [SerializeField] private float rotationSpeed = 10f;
+    [SerializeField] private float rotationSpeed = 10f;         
     [SerializeField] private float rotationAngle = 90f;
     [SerializeField] private bool isOpen = false;
     [SerializeField] private AudioSource sound;
@@ -21,7 +21,7 @@ public class Door_S3 : MonoBehaviour
 
     private void Update()
     {
-        if ((openDoor) && !isRotating)
+        if ((openDoor) && !isRotating)            //when the door is supposed to open, open it
         {
             if (sound != null)
             {
@@ -46,10 +46,10 @@ public class Door_S3 : MonoBehaviour
 
     public void Open()
     {
-        openDoor = true;
+        openDoor = true;             //gets updated from the lever script and enables the door to open
     }
 
-    public IEnumerator RotateDoor()
+    public IEnumerator RotateDoor()                //doors open when the levers are pressed, no immediate interaction with user
     {
         isRotating = true;
         if (gameObject.name == "DoorGate_Wooden_Right") direction = -1;
