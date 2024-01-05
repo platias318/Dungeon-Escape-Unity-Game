@@ -39,9 +39,9 @@ public class Door : MonoBehaviour
             else
             {
                 v = Vector3.up;
-
+                //rotation relative to player position
                 targetDirection = player.transform.InverseTransformPoint(transform.position);
-                Debug.Log(targetDirection);
+                
                 direction = Math.Sign(targetDirection.x);
             }
             
@@ -53,6 +53,7 @@ public class Door : MonoBehaviour
 
     public IEnumerator RotateDoor()
     {
+        
         isRotating = true;
 
         float elapsedTime = 0f;
@@ -76,7 +77,7 @@ public class Door : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
          player = other.gameObject;
-         Debug.Log("trigger enter");
+         
          triggered = true;
 
     }
@@ -84,7 +85,7 @@ public class Door : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
 
-         Debug.Log("trigger exit");
+         
          triggered = false;
 
     }
