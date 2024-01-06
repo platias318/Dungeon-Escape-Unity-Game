@@ -1,10 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.UI;
 using System;
-using Unity.VisualScripting;
 
 public class Door3 : MonoBehaviour
 {
