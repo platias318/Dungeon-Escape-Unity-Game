@@ -1,1 +1,2 @@
 This is a University project, about a Dungeon themed game using the unity graphics engine and the programming language C#. The game consists of a menu and 3 main stages, each one with a different set of riddles for the player to solve and advance to the next round.
+The final built of the application can be found on this [link](https://github.com/platias318/Dungeon-Escape-Unity-Game/tree/main/Builts) on the file 'My Project.exe'
